@@ -5,34 +5,20 @@ namespace Showcase
 {
     class Program
     {
+       
         static void Main(string[] args)
         {
-            int row = 0;
-
-            do
             {
-                if (row == 0 || row >= 25)
-                    ResetConsole();
-
-                string input = Console.ReadLine();
-                if (string.IsNullOrEmpty(input)) break;
-                Console.WriteLine($"Input: {input} {"Begins with uppercase? ",30}: " +
-                                  $"{(input.StartsWithUpper() ? "Yes" : "No")}{Environment.NewLine}");
-                row += 3;
-            } while (true);
-            return;
-
-            // Declare a ResetConsole local method
-            void ResetConsole()
-            {
-                if (row > 0)
-                {
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                }
-                Console.Clear();
-                Console.WriteLine($"{Environment.NewLine}Press <Enter> only to exit; otherwise, enter a string and press <Enter>:{Environment.NewLine}");
-                row = 3;
+                Console.WriteLine("Entrez une première valeur : ");
+                int input1 = int.Parse(Console.ReadLine());
+                Console.WriteLine("Entrez une deuxième valeur : ");
+                int input2 = int.Parse(Console.ReadLine());
+                StringLibrary.CalCulator sq = new StringLibrary.CalCulator();
+                Console.WriteLine("Addition : " + sq.Add(input1, input2));
+                Console.WriteLine("Soustraction : " + sq.Subtract(input1, input2));
+                Console.WriteLine("Multiplication : " + sq.Multiply(input1, input2));
+                Console.WriteLine("Division : " + sq.Division(input1, input2));
+                Console.ReadLine();
             }
         }
     }

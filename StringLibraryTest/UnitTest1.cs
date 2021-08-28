@@ -8,46 +8,35 @@ namespace StringLibraryTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestStartsWithUpper()
+        public void Adding()
         {
-            // Tests that we expect to return true.
-            string[] words = { "Alphabet", "Zebra", "ABC", "Αθήνα", "Москва" };
-            foreach (var word in words)
-            {
-                bool result = word.StartsWithUpper();
-                Assert.IsTrue(result,
-                       String.Format("Expected for '{0}': true; Actual: {1}",
-                                     word, result));
-            }
+            StringLibrary.CalCulator sq = new StringLibrary.CalCulator();
+            int result = sq.Add(10, 15);
+            Assert.AreEqual<int>(25, result);
+        }
+        
+        [TestMethod]
+        public void Subtract()
+        {
+            StringLibrary.CalCulator sq = new StringLibrary.CalCulator();
+            int result = sq.Subtract(10, 15);
+            Assert.AreEqual<int>(5, result);
         }
 
         [TestMethod]
-        public void TestDoesNotStartWithUpper()
+        public void Multiply()
         {
-            // Tests that we expect to return false.
-            string[] words = { "alphabet", "zebra", "abc", "αυτοκινητοβιομηχανία", "государство",
-                               "1234", ".", ";", " " };
-            foreach (var word in words)
-            {
-                bool result = word.StartsWithUpper();
-                Assert.IsFalse(result,
-                       String.Format("Expected for '{0}': false; Actual: {1}",
-                                     word, result));
-            }
+            StringLibrary.CalCulator sq = new StringLibrary.CalCulator();
+            int result = sq.Multiply(10, 15);
+            Assert.AreEqual<int>(150, result);
         }
-
+        
         [TestMethod]
-        public void DirectCallWithNullOrEmpty()
+        public void Division()
         {
-            // Tests that we expect to return false.
-            string[] words = { string.Empty, null };
-            foreach (var word in words)
-            {
-                bool result = StringLibrary.StartsWithUpper(word);
-                Assert.IsFalse(result,
-                       String.Format("Expected for '{0}': false; Actual: {1}",
-                                     word == null ? "<null>" : word, result));
-            }
+            StringLibrary.CalCulator sq = new StringLibrary.CalCulator();
+            float result = sq.Division(15, 5);
+            Assert.AreEqual<float>(3, result);
         }
     }
 }
